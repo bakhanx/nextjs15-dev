@@ -2,7 +2,8 @@ import Link from 'next/link'
 
 const links = [
   { href: '/home', label: 'Home' },
-  { href: '/page1', label: 'Page1' }
+  { href: '/page1', label: 'Page1' },
+  { href: '/draft', label: 'Draft' },
 ]
 
 export default function Header() {
