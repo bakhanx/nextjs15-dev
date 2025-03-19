@@ -1,4 +1,4 @@
-import Draft from './_components/draft'
+import Draft from './_components/Draft'
 
 export default async function Page() {
 
