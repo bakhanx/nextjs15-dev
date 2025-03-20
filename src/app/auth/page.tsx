@@ -1,11 +1,11 @@
-import React from 'react'
-import Auth from './components/Auth'
-import { auth } from '@/auth'
-import styles from '@/app/styles/button.module.css'
-import Link from 'next/link'
+import React from 'react';
+import Auth from './components/Auth';
+import { auth } from '@/auth';
+import styles from '@/app/styles/button.module.css';
+import Link from 'next/link';
 
 export default async function Page() {
-  const session = await auth()
+  const session = await auth();
 
   if (session?.user) {
     return (
@@ -17,12 +17,12 @@ export default async function Page() {
           User-Info Page
         </Link>
       </div>
-    )
+    );
   }
 
   return (
     <div>
       <Auth />
     </div>
-  )
+  );
 }
