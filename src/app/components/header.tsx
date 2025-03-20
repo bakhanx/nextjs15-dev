@@ -5,6 +5,7 @@ const links = [
   { href: '/page1', label: 'Page1' },
   { href: '/draft', label: 'Draft' },
   { href: '/auth', label: 'Auth' },
+  { href: '/landing', label: 'Landing' },
 ]
 
 export default function Header() {
