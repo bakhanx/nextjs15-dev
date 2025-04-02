@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import React from 'react'
-import SignOutButton from '../components/Sign-out-button'
-import { auth } from '@/auth'
+import Image from 'next/image';
+import React from 'react';
+import SignOutButton from '../components/Sign-out-button';
+import { auth } from '@/auth';
 
 const UserInfo = async () => {
-  const session = await auth()
+  const session = await auth();
 
   return (
     <div>
@@ -24,7 +24,7 @@ const UserInfo = async () => {
         <SignOutButton />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserInfo
+export default UserInfo;

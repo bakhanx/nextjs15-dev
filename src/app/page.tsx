@@ -1,34 +1,64 @@
 import Form from 'next/form'
 import { redirect } from 'next/navigation'
 
-
-const redirectPage = async ()=>{
+const redirectPage = async () => {
   "use server"
   redirect("/page1")
 }
 
 export default function Home() {
-
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start">
-        {/* flex wrap */}
-        <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <div className="flex flex-wrap">
-            <div className="w-1/3 bg-blue-500">Item 1</div>
-            <div className="w-1/3 bg-green-500">Item 2</div>
-            <div className="w-1/3 bg-red-500">Item 3</div>
-            <div className="w-1/3 bg-yellow-500">Item 4</div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4 py-16">
+        <main className="flex flex-col items-center gap-12">
+          {/* Hero Section */}
+          <div className="text-center">
+            <h1 className="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
+              Welcome to Our Platform
+            </h1>
+            <p className="text-lg text-gray-600">
+              Discover amazing features and start your journey today
+            </p>
           </div>
-        </div>
 
-        {/* Form components */}
-        <Form action={redirectPage}>
-          <input name="query" className='border p-2' />
-          <button type="submit" className='border p-2'>Submit</button>
-        </Form>
-      </main>
-      <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]"></footer>
+          {/* Features Grid */}
+          <div className="grid w-full max-w-4xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: 'Feature 1', color: 'bg-blue-500' },
+              { title: 'Feature 2', color: 'bg-green-500' },
+              { title: 'Feature 3', color: 'bg-red-500' },
+              { title: 'Feature 4', color: 'bg-yellow-500' }
+            ].map((item, index) => (
+              <div
+                key={index}
+                className={`${item.color} rounded-lg p-6 text-white transition-transform hover:scale-105`}
+              >
+                <h3 className="mb-2 text-xl font-semibold">{item.title}</h3>
+                <p className="text-sm opacity-90">
+                  Description of the feature goes here
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Search Form */}
+          <div className="w-full max-w-md">
+            <Form action={redirectPage} className="flex gap-2">
+              <input
+                name="query"
+                className="flex-1 rounded-lg border border-gray-300 px-4 py-2 focus:border-blue-500 focus:outline-none"
+                placeholder="Search..."
+              />
+              <button
+                type="submit"
+                className="rounded-lg bg-blue-600 px-6 py-2 text-white transition-colors hover:bg-blue-700"
+              >
+                Search
+              </button>
+            </Form>
+          </div>
+        </main>
+      </div>
     </div>
   )
 }

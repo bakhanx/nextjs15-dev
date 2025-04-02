@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 // Data for plant cards
 const plantCards = [
@@ -31,42 +32,55 @@ const categories = [
 
 export default function Page() {
   return (
-    <div>
-      <div className="shadow-ds relative flex h-[932px] w-full max-w-[430px] flex-col items-start gap-16 bg-white px-10 py-20 [background:linear-gradient(180deg,rgba(48,75,13,0)_0%,rgba(21,43,10,1)_100%)]">
+    <div className="min-h-screen bg-gradient-to-b from-[#24570b] to-[#152b0a]">
+      <div className="container mx-auto flex min-h-screen max-w-md flex-col items-center justify-center px-6 py-12">
         {/* Logo Section */}
-        <div className="flex items-center gap-2">
+        <div className="mb-12 flex items-center gap-2">
           {/* <Leaf className="w-[38px] h-[47px] text-[#24570b]" /> */}
-          <div className="text-[39.5px] font-normal text-[#24570b]">
+          <div className="text-4xl font-normal text-white">
             Plantio
           </div>
         </div>
 
-        {/* Welcome Text */}
-        <h1 className="font-['Poppins-Medium',Helvetica] text-[32px] font-medium text-white">
-          Welcome to Plantio
-        </h1>
+        {/* Welcome Section */}
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 text-4xl font-semibold text-white">
+            Welcome to Plantio
+          </h1>
+          <p className="text-lg leading-relaxed text-white/90">
+            Feel fresh with plant worlds.
+            <br />
+            Enhance your living space with nature!
+          </p>
+        </div>
 
-        {/* Tagline */}
-        <p className="font-['SF_UI_Display-Regular',Helvetica] text-base tracking-[0.32px] text-white">
-          Feel Fresh a with plant Worlds.
-          <br />
-          it will enhance your living space!
-        </p>
+        {/* Action Buttons */}
+        <div className="flex w-full flex-col gap-4">
+          <Link
+            href="/auth/register"
+            className="flex h-14 items-center justify-center rounded-lg border-2 border-white bg-transparent text-white transition-colors hover:bg-white/10"
+          >
+            <span className="text-lg font-medium">
+              REGISTER
+            </span>
+          </Link>
 
-        {/* Register Button */}
-        <button className="h-[60px] w-full rounded-[9px] border-2 border-white text-white hover:bg-transparent hover:text-white">
-          <span className="font-['Poppins-Medium',Helvetica] text-xl font-medium">
-            REGISTER
-          </span>
-        </button>
+          <Link
+            href="/auth/login"
+            className="flex h-14 items-center justify-center rounded-lg bg-white text-[#24570b] transition-colors hover:bg-white/90"
+          >
+            <span className="text-lg font-medium">
+              LOGIN
+            </span>
+          </Link>
+        </div>
 
-        {/* Login button */}
-        <button className="h-[60px] w-full rounded-[9px] bg-white text-[#323c06] hover:bg-white/90">
-          <span className="font-['Poppins-Medium',Helvetica] text-xl font-medium">
-            LOGIN
-          </span>
-        </button>
+        {/* Additional Info */}
+        <div className="mt-12 text-center text-sm text-white/70">
+          <p>By continuing, you agree to our Terms of Service</p>
+          <p className="mt-2">and Privacy Policy</p>
+        </div>
       </div>
-    </div>  
+    </div>
   );
 }
